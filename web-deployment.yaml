@@ -29,7 +29,7 @@ spec:
       - env:
         - name: CONTENT_API_URL
           value: http://api:3001
-        image: web:latest
+        image: ghcr.io/joshwencl/fabrikam-web:latest
         imagePullPolicy: ""
         name: web
         ports:
