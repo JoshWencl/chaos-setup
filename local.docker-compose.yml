@@ -6,7 +6,7 @@ services:
 
   api:
     build: ./content-api
-    image: api
+    image: ghcr.io/joshwencl/fabrikam-api:latest
     depends_on:
       - mongo
     environment:
@@ -14,4 +14,4 @@ services:
       
   web:
      build: ./content-web
-     image: web
+     image: ghcr.io/joshwencl/fabrikam-web:latest
