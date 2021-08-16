@@ -54,5 +54,15 @@ kubectl get deployments,pods,services --namespace chaos-mesh
 
 kubectl patch service chaos-dashboard -n chaos-mesh --type='json' --patch='[{"op": "replace", "path": "/spec/ports/0/nodePort", "value":31111}]'
 
+```
+
+Apply the network test yaml
+```
 kubectl apply -f network-delay.yaml
 ```
+
+You can check the chaos dashboard 
+![latency example](https://user-images.githubusercontent.com/25798273/129636140-b8710ef9-86f8-4a34-9542-987c7028086d.PNG)
+
+Other examples can be found here
+https://github.com/chaos-mesh/chaos-mesh/tree/master/examples
