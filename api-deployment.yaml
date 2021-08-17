@@ -26,7 +26,10 @@ spec:
         io.kompose.service: api
     spec:
       containers:
-      - image: ghcr.io/joshwencl/fabrikam-api:latest
+      - env:
+        - name: MONGODB_CONNECTION
+          value: mongodb://mongo:27017/contentdb
+        image: docker.pkg.github.com/joshwencl/chaos-setup/fabrikam-api:latest
         imagePullPolicy: ""
         name: api
         ports:
