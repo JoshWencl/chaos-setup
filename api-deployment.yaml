@@ -36,6 +36,8 @@ spec:
         - containerPort: 3001
         resources: {}
       restartPolicy: Always
+      imagePullSecrets:
+      - name: regcred
       serviceAccountName: ""
       volumes: null
 status: {}

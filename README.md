@@ -38,9 +38,27 @@ start minikube
 minikube start
 ```
 
+Setup a secret for auth
 ```
-kubectl apply -f api-service.yaml,web-service.yaml,api-deployment.yaml,web-deployment.yaml
+kubectl create secret docker-registry regcred --docker-server=docker.pkg.github.com --docker-username=JoshWencl --docker-password=<your pat>
 ```
+
+
+```
+kubectl apply -f api-service.yaml,web-service.yaml,mongo-deployment.yaml,init-deployment.yaml,api-deployment.yaml,web-deployment.yaml 
+```
+
+
+start the dashboard to see if everything is up
+```
+minikube dashboard
+```
+
+Connect to the web
+```
+minikube service web
+```
+
 
 Setup chaos mesh
 ```
@@ -60,6 +78,8 @@ Apply the network test yaml
 ```
 kubectl apply -f network-delay.yaml
 ```
+
+Going to apply that network latency to the default namespace.
 
 You can check the chaos dashboard 
 ![latency example](https://user-images.githubusercontent.com/25798273/129636140-b8710ef9-86f8-4a34-9542-987c7028086d.PNG)
