@@ -32,7 +32,7 @@ gotta convert the deploy for helm
 kompose convert
 ```
 
-start minikube
+## Minikube
 
 ```
 minikube start
@@ -42,7 +42,13 @@ Setup a secret for auth
 ```
 kubectl create secret docker-registry regcred --docker-server=docker.pkg.github.com --docker-username=JoshWencl --docker-password=<your pat>
 ```
+In the deployment for kubectl add the image pull secret attribute (kompose won't do this for you)
 
+```
+
+      imagePullSecrets:
+      - name: regcred
+ ```
 
 ```
 kubectl apply -f api-service.yaml,web-service.yaml,mongo-deployment.yaml,init-deployment.yaml,api-deployment.yaml,web-deployment.yaml 
